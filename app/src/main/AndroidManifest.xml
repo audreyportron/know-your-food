@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.apo.template.ui.categories.HomeActivity"
+                android:name="com.apo.template.ui.product.HomeActivity"
                 android:label="@string/categories_activity">
         </activity>
     </application>

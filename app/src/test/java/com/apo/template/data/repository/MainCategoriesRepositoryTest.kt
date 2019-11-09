@@ -20,6 +20,7 @@ class MainCategoriesRepositoryTest {
 
     @Mock
     private lateinit var categoriesApi: CategoriesApi
+
     @Mock
     private lateinit var categoriesDao: CategoriesDAO
 

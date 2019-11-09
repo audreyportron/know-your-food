@@ -4,18 +4,10 @@ import android.app.AlertDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.apo.template.R
-import com.apo.template.domain.categories.CategoriesRepository
 import com.apo.template.domain.categories.Category
-import com.apo.template.tools.AppSchedulers
-import com.apo.template.ui.categories.HomeActivity
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
-import org.koin.android.ext.android.inject
+import com.apo.template.ui.product.HomeActivity
 
 class SplashActivity : AppCompatActivity() {
-
-    private val categoriesRepository: CategoriesRepository by inject()
-    val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_Launcher)
@@ -24,15 +16,13 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        compositeDisposable += categoriesRepository.getCategories(forceApiLoad = true)
-            .subscribeOn(AppSchedulers.io())
-            .observeOn(AppSchedulers.mainThread())
-            .subscribe(::onSuccess, ::onError)
+        startActivity(HomeActivity.getIntent(this))
+        finish()
     }
 
     override fun onPause() {
         super.onPause()
-        compositeDisposable.clear()
+
     }
 
     private fun onSuccess(categories: List<Category>) {
