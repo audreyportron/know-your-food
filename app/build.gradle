@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.apo.mobgengot"
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    kapt {
+        javacOptions {
+            // Increase the max count of errors from annotation processors.
+            // Default is 100.
+            option("-Xmaxerrs", 500)
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel:1.1.2"
+    implementation "androidx.lifecycle:lifecycle-extensions:1.1.2"
+
+    //Paging
+    implementation "android.arch.paging:runtime:1.0.1"
+
+    //Material
+    implementation 'com.google.android.material:material:1.0.0'
+
+    //Koin
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rx_version"
+
+    //OKHTTP Retrofit
+    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Room components
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:2.1.0-alpha04"
+
+    //ProgressBar
+    implementation "me.zhanghai.android.materialprogressbar:library:1.4.1"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.google.truth:truth:0.33'
+    testImplementation "org.mockito:mockito-core:2.23.0"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    androidTestImplementation "org.koin:koin-test:$koin_version"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+}

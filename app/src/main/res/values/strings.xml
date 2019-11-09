@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Game of Thrones</string>
+    <string name="categories_activity">Select a category</string>
+
+
+    <string name="error">We got a problem!!</string>
+    <string name="error_message">We couldn\'t load the information. Please come back in a bit !</string>
+    <string name="ok">See you soon</string>
+
+    <string name="soon">Coming Soon !!</string>
+    <string name="soon_message">You can\'t get those information yet.</string>
+
+    <string name="book_pages">%1$s pages</string>
+
+    <string name="character_empty_alias">%1$s</string>
+    <string name="character_with_alias">%1$s as %2$s</string>
+
+
+</resources>
