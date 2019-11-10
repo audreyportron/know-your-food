@@ -22,6 +22,7 @@ class NetworkProductRepository(private val api: ProductApi) : ProductRepository 
 private fun ProductJson.toProduct() =
     Product(
         id = id,
+        name = product.name,
         brands = product.brands,
         img = product.img,
         scoreImg = product.score,

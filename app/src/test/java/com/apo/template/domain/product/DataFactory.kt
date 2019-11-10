@@ -4,6 +4,7 @@ object DataFactory {
 
     fun getProduct(id: String = "1") = Product(
         id = id,
+        name = "name",
         img = "urlimag",
         scoreImg = "scoreImg",
         ingredients = listOf(getIngredient()),

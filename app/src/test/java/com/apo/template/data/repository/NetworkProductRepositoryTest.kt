@@ -50,6 +50,7 @@ class NetworkProductRepositoryTest {
     )
 
     fun productDetailJson() = ProductContentJson(
+        name = "name",
         img = "urlimag",
         score = "scoreImg",
         ingredients = listOf(ingredientJson()),

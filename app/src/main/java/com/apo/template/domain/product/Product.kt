@@ -2,6 +2,7 @@ package com.apo.template.domain.product
 
 data class Product(
     val id: String,
+    val name: String,
     val brands: String,
     val img: String,
     val scoreImg: String,

@@ -8,6 +8,7 @@ data class ProductJson(
 )
 
 data class ProductContentJson(
+    @SerializedName("product_name_fr") val name:String,
     @SerializedName("image_front_small_url") val img: String,
     @SerializedName("image_nutrition_thumb_url") val score: String,
     @SerializedName("ingredients") val ingredients: List<IngredientsJson>,
